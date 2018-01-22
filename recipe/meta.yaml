@@ -10,8 +10,8 @@ package:
 source:
   fn: KernSmooth_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/KernSmooth_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/KernSmooth_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
   sha256: 8b72d23ed121a54af188b2cda4441e3ce2646359309885f6455b82c0275210f6
 
 
