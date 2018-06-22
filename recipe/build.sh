@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# R refuses to build packages that mark themselves as Priority: Recommended
-mv DESCRIPTION DESCRIPTION.old
-grep -v '^Priority: ' DESCRIPTION.old > DESCRIPTION
-
 $R CMD INSTALL --build .
+# This rpath interferes with my attempt at allowing symbolic-link based interposition of Rblas.
+if [[ ${target_platform} == osx-64 ]]; then
+  find ${PREFIX}/lib/R/library
+  ${INSTALL_NAME_TOOL} -delete_rpath ${PREFIX}/lib ${PREFIX}/lib/R/library/KernSmooth/libs/KernSmooth.so
+fi
